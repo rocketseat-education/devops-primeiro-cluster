@@ -5,7 +5,12 @@ metadata:
   name: app-ts
 
 spec:
-  replicas: 2
+  replicas: 12
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 20%
+      maxUnavailable: 10%
   selector:
     matchLabels:
       api: app-ts
