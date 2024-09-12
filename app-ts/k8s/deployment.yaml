@@ -16,8 +16,8 @@ spec:
     spec:
       containers:
         - name: app-ts
-          image: danielrodriguess/app-ts:v1
-          imagePullPolicy: Always
+          image: danielrodriguess/app-ts:v2
+          imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 3000
           resources:
