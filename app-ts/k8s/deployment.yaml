@@ -7,10 +7,10 @@ metadata:
 spec:
   replicas: 12
   strategy:
-    type: RollingUpdate
-    rollingUpdate:
-      maxSurge: 20%
-      maxUnavailable: 10%
+    type: Recreate
+    #rollingUpdate:
+    #  maxSurge: 20%
+    #  maxUnavailable: 10%
   selector:
     matchLabels:
       api: app-ts
