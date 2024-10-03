@@ -4,4 +4,4 @@
   metadata:
     name: app-ts
   data:
-    app-name: rocketseat-app
+    APP: rocketseat-app
