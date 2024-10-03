@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
         - name: app-ts
-          image: danielrodriguess/app-ts:v3
+          image: danielrodriguess/app-ts:v4
           imagePullPolicy: IfNotPresent
           env:
             - name: APP
@@ -29,6 +29,11 @@ spec:
                 configmapkeyref:
                   name: app-ts
                   key: app-name
+            - name: API_KEY
+              valuefrom:
+                secretkeyref:
+                  name: app-ts-secrets
+                  key: api-key
           ports:
             - containerPort: 3000
           resources:
