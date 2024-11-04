@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
         - name: app-ts
-          image: danielrodriguess/app-ts:v7
+          image: danielrodriguess/app-ts:v8
           imagePullPolicy: IfNotPresent
           envFrom:
             - configMapRef:
@@ -49,6 +49,7 @@ spec:
             successThreshold: 1
             timeoutSeconds: 1
             periodSeconds: 10
+            initialDelaySeconds: 30
           readinessProbe:
             httpGet:
               path: /readyz
@@ -57,6 +58,15 @@ spec:
             successThreshold: 1
             timeoutSeconds: 1
             periodSeconds: 15
+            initialDelaySeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: 3000
+            failureThreshold: 2
+            successThreshold: 3
+            periodSeconds: 10
+            initialDelaySeconds: 10
           resources:
             requests:
               cpu: 400m
